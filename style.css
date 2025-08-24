@@ -1,0 +1,276 @@
+@font-face {
+    font-family: Redaction35;
+    src: url(Redaction35-Regular.ttf);
+}
+@font-face {
+    font-family: Redaction35B;
+    src: url(Redaction35-Bold.ttf);
+}
+body {
+    font-family: Redaction35;
+    height: 100vh;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+#top {
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    font-size: 54pt;
+    color: white;
+}
+
+#mus span {
+    cursor: default;
+    transition: color 0.2s ease;
+}
+
+#mus span:hover {
+    color: yellow;
+}
+
+
+#left {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding:10vh 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#right {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding:18.6vh 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: row; /* Changed from column to row */
+    gap: 2rem;
+    overflow: hidden; /* prevent the whole right side from scrolling */
+}
+
+#right ul {
+    list-style: none;
+    overflow-y: auto;   /* make the list scrollable */
+    flex: 1;            /* take up remaining height */
+    padding-right: 1em; /* spacing so scrollbar doesn't overlap text */
+}
+
+
+
+#clients {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 42pt;
+    font-weight: normal;
+    text-decoration: underline;
+    cursor: default;
+}
+
+#left p {
+    font-size: 24pt;
+    line-height: 1.4;
+}
+
+#contact {
+    margin-top: auto;
+}
+
+#contact p {
+    font-size: 24pt;
+    line-height: 1.2;
+    margin: 0;
+    cursor: pointer;
+}
+
+#right p {
+    font-size: 24pt;
+    margin-bottom: 1rem;
+}
+
+#right ul {
+    list-style: none;
+}
+
+#right li {
+    font-size: 24pt;
+    cursor: pointer;
+}
+
+#right li:hover::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('lilapple.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#contact p:hover::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('lilapple.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.social-links {
+    font-size: 24pt;
+    margin-left: 6rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.social-links a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.social-links a:hover::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('lilapple.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px; /* pushes apple to the right */
+    vertical-align: middle; /* lines it up with text */
+}
+
+#sam-email a, #cristina-email a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+#corner-worm {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 6%;
+    height: auto;
+    z-index: 1; /* optional, keeps it behind text */
+    margin: 20px;
+    transition: transform 0.1s ease; /* smooth */
+}
+
+
+#corner-worm:hover {
+    transform: rotate(-30deg);
+
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 5.5vw;
+    }
+    #left p,
+    #contact p,
+    #right p,
+    #right li,
+    .social-links,
+    .social-links a {
+        font-size: 4vw;
+    }
+    #mus span {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 6vw;
+    }
+    #left p,
+    #contact p,
+    #right p,
+    #right li,
+    .social-links,
+    .social-links a {
+        font-size: 4vw;
+    }
+    #mus span {
+        visibility: hidden;
+    }
+    #right {
+        z-index:12 ;
+    }
+    #corner-worm {
+        width: 9%;
+    }
+    #left {
+        width: 50%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding:10vh 2rem 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    #right {
+        width: 50%;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding:15vh 2rem 2rem 1rem;
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 5vw;
+    }
+    #left p,
+    #contact p,
+    #right p,
+    #right li,
+    .social-links,
+    .social-links a {
+        font-size: 2vw;
+    }
+    #mus span {
+        visibility: hidden;
+    }
+}
