@@ -14,6 +14,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow-wrap: normal;
 }
 
 
@@ -41,7 +44,6 @@ body {
     color: yellow;
 }
 
-
 #left {
     width: 50%;
     height: 100vh;
@@ -60,7 +62,7 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    padding:18.6vh 2rem 2rem 2rem;
+    padding:19.6vh 2rem 2rem 2rem;
     display: flex;
     flex-direction: row; /* Changed from column to row */
     gap: 2rem;
@@ -77,14 +79,47 @@ body {
 
 
 #clients {
-    text-decoration: underline;
+    text-decoration: none; /* Remove the default underline */
+    cursor: default;
+    position: relative; /* Needed for positioning the pseudo-element */
 }
+
+
+#clients::after {
+    content: "";
+    display: block;
+    width: 100%; /* Keep percentage-based width */
+    height: 10px; /* Back to fixed pixels for desktop */
+    background-image: url('Underline2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -10px; /* Back to fixed pixels for desktop */
+}
+
 
 h1 {
     font-size: 42pt;
     font-weight: normal;
-    text-decoration: underline;
+    text-decoration: none; /* Remove the default underline */
     cursor: default;
+    position: relative; /* Needed for positioning the pseudo-element */
+}
+
+#we {
+    padding-top: 10px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 50%; /* Keep percentage-based width */
+    height: 10px; /* Back to fixed pixels for desktop */
+    background-image: url('underline1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -15px; /* Back to fixed pixels for desktop */
 }
 
 #left p {
@@ -196,6 +231,13 @@ h1 {
 
 }
 
+@media (max-width: 1219px) {
+
+    #mus span {
+        visibility: hidden;
+    }
+}
+
 @media (max-width: 1024px) {
     h1 {
         font-size: 5.5vw;
@@ -206,10 +248,22 @@ h1 {
     #right li,
     .social-links,
     .social-links a {
-        font-size: 4vw;
+        font-size: 3vw;
     }
     #mus span {
         font-size: 2vw;
+    }
+    h1::after {
+        height: 15px; /* Larger fixed size for tablets */
+        margin-top: -15px;
+        width: 80%;
+    }
+    #clients::after {
+        height: 15px;
+        margin-top: -12px;
+    }
+    #corner-worm {
+        margin-right: 40px;
     }
 }
 
@@ -224,6 +278,9 @@ h1 {
     .social-links,
     .social-links a {
         font-size: 4vw;
+    }
+    #corner-worm {
+        margin-right: 40px;
     }
     #mus span {
         visibility: hidden;
@@ -245,14 +302,22 @@ h1 {
         flex-direction: column;
         justify-content: space-between;
     }
-    
+    h1::after {
+        height: 18px; /* Even larger for mobile */
+        margin-top: -15px;
+        width: 90%;
+    }
+    #clients::after {
+        height: 18px;
+        margin-top: -12px;
+    }
     #right {
         width: 50%;
         height: 100vh;
         position: absolute;
         right: 0;
         top: 0;
-        padding:15vh 2rem 2rem 1rem;
+        padding: 9.5rem 2rem 2rem 1rem;
         display: flex;
         gap: 2rem;
     }
@@ -268,9 +333,16 @@ h1 {
     #right li,
     .social-links,
     .social-links a {
-        font-size: 2vw;
+        font-size: 3vw;
     }
     #mus span {
         visibility: hidden;
     }
+    #corner-worm {
+        margin-right: 40px;
+    }
+    #right {
+
+    }
 }
+
