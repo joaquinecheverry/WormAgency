@@ -320,6 +320,9 @@ h1::after {
         right: 0;
         top: 0;
         padding: 9.5rem 2rem 2rem 1rem;
+        word-break: keep-all;
+                white-space: nowrap;
+                overflow-wrap: normal;
         display: flex;
         gap: 2rem;
     }
@@ -344,7 +347,10 @@ h1::after {
         margin-right: 40px;
     }
     #right {
-
-    }
+                word-break: keep-all;
+                white-space: nowrap;
+                overflow-wrap: normal;
+        }
+    
 }
 
