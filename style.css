@@ -67,6 +67,11 @@ body {
     flex-direction: row; /* Changed from column to row */
     gap: 2rem;
     overflow: hidden; /* prevent the whole right side from scrolling */
+
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow-wrap: normal;
+    
 }
 
 #right ul {
