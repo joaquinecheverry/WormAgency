@@ -16,8 +16,6 @@ body {
     box-sizing: border-box;
 }
 
-
-
 #top {
     height: 10vh;
     width: 100%;
@@ -26,8 +24,8 @@ body {
     left: 0;
     z-index: 10;
     display: flex;
-    justify-content: center; /* centers horizontally */
-    align-items: center;     /* centers vertically */
+    justify-content: center;
+    align-items: center;
     font-size: 54pt;
     color: white;
 }
@@ -61,51 +59,45 @@ body {
     top: 0;
     padding:19.6vh 2rem 2rem 2rem;
     display: flex;
-    flex-direction: row; /* Changed from column to row */
+    flex-direction: row;
     gap: 2rem;
-    overflow: hidden; /* prevent the whole right side from scrolling */
-
-        word-break: keep-all;
-        white-space: nowrap;
-        overflow-wrap: normal;
-    
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow-wrap: normal;
 }
 
 #right ul {
     list-style: none;
-    overflow-y: auto;   /* make the list scrollable */
-    flex: 1;            /* take up remaining height */
-    padding-right: 1em; /* spacing so scrollbar doesn't overlap text */
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 1em;
 }
-
-
 
 #clients {
-    text-decoration: none; /* Remove the default underline */
+    text-decoration: none;
     cursor: default;
-    position: relative; /* Needed for positioning the pseudo-element */
+    position: relative;
 }
-
 
 #clients::after {
     content: "";
     display: block;
-    width: 100%; /* Keep percentage-based width */
-    height: 10px; /* Back to fixed pixels for desktop */
+    width: 100%;
+    height: 10px;
     background-image: url('Underline2.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: -10px; /* Back to fixed pixels for desktop */
+    margin-top: -10px;
 }
-
 
 h1 {
     font-size: 42pt;
     font-weight: normal;
-    text-decoration: none; /* Remove the default underline */
+    text-decoration: none;
     cursor: default;
-    position: relative; /* Needed for positioning the pseudo-element */
+    position: relative;
 }
 
 #we {
@@ -115,13 +107,13 @@ h1 {
 h1::after {
     content: "";
     display: block;
-    width: 50%; /* Keep percentage-based width */
-    height: 10px; /* Back to fixed pixels for desktop */
+    width: 50%;
+    height: 10px;
     background-image: url('underline1.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: -15px; /* Back to fixed pixels for desktop */
+    margin-top: -15px;
 }
 
 #left p {
@@ -205,8 +197,8 @@ h1::after {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-left: 10px; /* pushes apple to the right */
-    vertical-align: middle; /* lines it up with text */
+    margin-left: 10px;
+    vertical-align: middle;
 }
 
 #sam-email a, #cristina-email a {
@@ -222,19 +214,16 @@ h1::after {
     right: 0;
     width: 6%;
     height: auto;
-    z-index: 1; /* optional, keeps it behind text */
+    z-index: 1;
     margin: 20px;
-    transition: transform 0.1s ease; /* smooth */
+    transition: transform 0.1s ease;
 }
-
 
 #corner-worm:hover {
     transform: rotate(-30deg);
-
 }
 
 @media (max-width: 1219px) {
-
     #mus span {
         visibility: hidden;
     }
@@ -256,7 +245,7 @@ h1::after {
         font-size: 2vw;
     }
     h1::after {
-        height: 15px; /* Larger fixed size for tablets */
+        height: 15px;
         margin-top: -15px;
         width: 80%;
     }
@@ -269,88 +258,144 @@ h1::after {
     }
 }
 
+/* Mobile Layout - Stack vertically */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 6vw;
+    body {
+        height: auto;
+        min-height: 100vh;
     }
-    #left p,
+
+    #top {
+        height: 8vh;
+        position: relative;
+        top: 0;
+    }
+
+    #mus span {
+        visibility: hidden;
+    }
+
+    #left {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 1.5rem;
+    }
+
+    h1 {
+        font-size: clamp(10vw, 14vw, 18vw);
+        white-space: nowrap;
+    }
+
+    h1::after {
+        width: 100%;
+        height: 18px;
+        margin-top: -15px;
+    }
+
+
+    
+    #we {
+        font-size: 4vw;
+        padding-top: 0;
+        margin: 0;
+        margin-top: -18px;
+        margin-bottom: 18px;
+        text-align: left;
+    }
+
+    #contact {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #contact p {
+        font-size: 4vw;
+    }
+
+    #right {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        overflow: visible;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+
+    #clients {
+        font-size: 4vw;
+        flex-shrink: 0;
+        align-self: flex-start;
+    }
+
+    #clients::after {
+        width: 100%;
+        height: 18px;
+        margin-top: -12px;
+    }
+
+    #right ul {
+        overflow-y: auto;   /* make list scrollable */
+        flex: 1;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        max-height: 50vh;   /* optional: limit so it doesn’t push down page */
+    }
+
+    #right li {
+        font-size: vw;
+    }
+
+    #corner-worm {
+        width: 12%;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    #we,
+    #clients,
     #contact p,
     #right p,
     #right li,
     .social-links,
     .social-links a {
-        font-size: 4vw;
-    }
-    #corner-worm {
-        margin-right: 40px;
-    }
-    #mus span {
-        visibility: hidden;
-    }
-    #right {
-        z-index:12 ;
-    }
-    #corner-worm {
-        width: 9%;
-    }
-    #left {
-        width: 50%;
-        height: 100vh;
-        position: absolute;
-        left: 0;
-        top: 0;
-        padding:10vh 2rem 2rem 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    h1::after {
-        height: 18px; /* Even larger for mobile */
-        margin-top: -15px;
-        width: 90%;
-    }
-    #clients::after {
-        height: 18px;
-        margin-top: -12px;
-    }
-    #right {
-        width: 50%;
-        height: 100vh;
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 9.5rem 2rem 2rem 1rem;
-        word-break: keep-all;
-                white-space: nowrap;
-                overflow-wrap: normal;
-        display: flex;
-        gap: 2rem;
+        font-size: 5vw !important; /* scale nicely with screen */
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 5vw;
+        font-size: clamp(10vw, 14vw, 18vw);
     }
-    #left p,
+#we {
+    text-align: left;
+}
+    /* Force everything else except the h1 */
+    #we,
+    #clients,
     #contact p,
     #right p,
     #right li,
     .social-links,
     .social-links a {
-        font-size: 3vw;
-    }
-    #mus span {
-        visibility: hidden;
-    }
-    #corner-worm {
-        margin-right: 40px;
+        font-size: 20pt !important; /* use px/vw/pt consistently */
     }
     #right {
-                word-break: keep-all;
-                white-space: nowrap;
-                overflow-wrap: normal;
-        }
-    
+    overflow-y: auto;   /* make list scrollable */
+    max-height: 50vh;
+    }
 }
 
