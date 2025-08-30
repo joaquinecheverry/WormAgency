@@ -31,13 +31,16 @@ body {
 }
 
 #mus span {
-    cursor: default;
-    transition: color 0.2s ease;
-}
-
-#mus span:hover {
-    color: yellow;
-}
+    color: inherit;            /* JS sets this to match the background */
+    -webkit-text-stroke: none; /* Kill any stroke */
+    text-stroke: none;
+    text-shadow: none;
+  }
+  
+  #mus span:hover {
+    color: #FFEE00 !important; /* Always yellow on hover */
+  }
+  
 
 #left {
     width: 50%;
@@ -377,6 +380,9 @@ h1::after {
 }
 
 @media (max-width: 480px) {
+    body {
+        overflow: hidden;
+    }
     h1 {
         font-size: clamp(9vw, 13vw, 17vw);
     }
@@ -398,4 +404,3 @@ h1::after {
     max-height: 50vh;
     }
 }
-
