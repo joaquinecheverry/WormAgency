@@ -79,7 +79,6 @@ function updateStyling(volumeLevel) {
     note.style.textShadow = 'none';
   });
   
-  // Save stroke width globally so worms can access it
   window.currentStrokeWidth = strokeWidth;
 }
 
@@ -182,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
         show() {
           sketch.fill(0);
           
-          // Apply pink outline dynamically
           if (window.currentStrokeWidth && window.currentStrokeWidth > 0.1) {
             sketch.stroke("#ff00ff");
             sketch.strokeWeight(window.currentStrokeWidth);
@@ -413,7 +411,6 @@ document.addEventListener('DOMContentLoaded', function() {
           link.textContent = platform;
           link.target = '_blank';
           
-          // Apply current styling to new links
           if (window.currentStrokeWidth && window.currentStrokeWidth > 0.1) {
             const strokeColor = "#ff00ff";
             const strokeWidth = window.currentStrokeWidth;
