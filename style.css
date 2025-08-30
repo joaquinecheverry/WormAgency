@@ -403,4 +403,7 @@ h1::after {
     overflow-y: auto;   /* make list scrollable */
     max-height: 50vh;
     }
+    #right ul{
+        padding-bottom: 20px;
+    }
 }
