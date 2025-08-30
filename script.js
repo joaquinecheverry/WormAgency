@@ -1,10 +1,109 @@
-// ======================
-// Worms from apple (p5.js) - SNAKE-LIKE MOVEMENT
-// ======================
+let bassOscillator = null;
+let bassVolume = null;
+let audioStarted = false;
+
+const FIRST_NOTE_VOLUME = -25;
+const LAST_NOTE_VOLUME = -5;
+
+async function initializeBackgroundBass() {
+  if (audioStarted) return;
+  
+  try {
+    await Tone.start();
+    audioStarted = true;
+    
+    bassVolume = new Tone.Volume(FIRST_NOTE_VOLUME).toDestination();
+    
+    bassOscillator = new Tone.Oscillator({
+      frequency: 55,
+      type: "sine"
+    }).connect(bassVolume);
+    
+    bassOscillator.start();
+    
+  } catch (error) {
+    console.log("Audio initialization failed:", error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const musicNotes = document.querySelectorAll('#mus span');
+  let currentVolume = FIRST_NOTE_VOLUME;
+  
+  let bassInitialized = false;
+  
+  function ensureBassInitialized() {
+    if (!bassInitialized) {
+      initializeBackgroundBass();
+      bassInitialized = true;
+    }
+  }
+  
+function updateStyling(volumeLevel) {
+  const intensity = (volumeLevel - FIRST_NOTE_VOLUME) / (LAST_NOTE_VOLUME - FIRST_NOTE_VOLUME);
+  const clampedIntensity = Math.max(0, Math.min(1, intensity));
+
+  const greyValue = 255 - Math.floor(clampedIntensity * 50); 
+  const bgColor = `rgb(${greyValue}, ${greyValue}, ${greyValue})`;
+  document.body.style.backgroundColor = bgColor;
+
+  const strokeWidth = clampedIntensity * 1.1;
+
+  const strokeColor = "#ff00ff";
+
+  const textElements = document.querySelectorAll('h1, p, li, a, #clients, .social-links a');
+  textElements.forEach(element => {
+    if (element.closest('#mus')) return;
+
+    if (strokeWidth > 0.1) {
+      element.style.webkitTextStroke = `${strokeWidth}px ${strokeColor}`;
+      element.style.textStroke = `${strokeWidth}px ${strokeColor}`;
+      element.style.textShadow = `
+        -${strokeWidth}px -${strokeWidth}px 0 ${strokeColor},
+        ${strokeWidth}px -${strokeWidth}px 0 ${strokeColor},
+        -${strokeWidth}px ${strokeWidth}px 0 ${strokeColor},
+        ${strokeWidth}px ${strokeWidth}px 0 ${strokeColor}
+      `;
+    } else {
+      element.style.webkitTextStroke = '';
+      element.style.textStroke = '';
+      element.style.textShadow = '';
+    }
+  });
+
+  const musicNotes = document.querySelectorAll('#mus span');
+  musicNotes.forEach(note => {
+    note.style.color = bgColor;
+    note.style.webkitTextStroke = 'none';
+    note.style.textStroke = 'none';
+    note.style.textShadow = 'none';
+  });
+  
+  // Save stroke width globally so worms can access it
+  window.currentStrokeWidth = strokeWidth;
+}
+
+  musicNotes.forEach((note, index) => {
+    note.addEventListener('mouseenter', function() {
+      ensureBassInitialized();
+      
+      if (bassVolume && audioStarted) {
+        const volumeRange = LAST_NOTE_VOLUME - FIRST_NOTE_VOLUME;
+        const volumeStep = volumeRange / (musicNotes.length - 1);
+        const targetVolume = FIRST_NOTE_VOLUME + (index * volumeStep);
+        
+        currentVolume = targetVolume;
+        bassVolume.volume.setValueAtTime(targetVolume, Tone.now());
+        
+        updateStyling(targetVolume);
+      }
+    });
+  });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const apple = document.getElementById("corner-worm");
   
-    // p5 sketch overlay
     new p5((sketch) => {
       let worms = [];
       let spawnX, spawnY;
@@ -12,63 +111,54 @@ document.addEventListener("DOMContentLoaded", () => {
       class Worm {
         constructor(x, y) {
           this.segments = [];
-          this.segmentCount = sketch.random(3, 10); // Random length between 8-20 segments
-          this.pixelSize = 5; // Size of each square pixel
+          this.segmentCount = sketch.random(3, 10);
+          this.pixelSize = 5;
           
-          // Snap spawn position to grid
           const gridX = Math.floor(x / this.pixelSize) * this.pixelSize;
           const gridY = Math.floor(y / this.pixelSize) * this.pixelSize;
           
-          // Initialize all segments at spawn point
           for (let i = 0; i < this.segmentCount; i++) {
             this.segments.push({ x: gridX, y: gridY });
           }
           
           this.moveCounter = 0;
-          this.moveInterval = sketch.random(2, 8); // Move every 4-8 frames for varied speed
-          this.turnChance = 0.25; // 15% chance to turn each move
+          this.moveInterval = sketch.random(2, 8);
+          this.turnChance = 0.25;
           
-          // Start with initial direction away from spawn (bottom-right)
-          // Heavily bias towards left and up to keep worms on screen
           const initialDirs = [
-            { x: -1, y: 0 },  // left
-            { x: -1, y: 0 },  // left (weighted)
-            { x: -1, y: 0 },  // left (weighted)
-            { x: 0, y: -1 },  // up  
-            { x: 0, y: -1 },  // up (weighted)
+            { x: -1, y: 0 },
+            { x: -1, y: 0 },
+            { x: -1, y: 0 },
+            { x: 0, y: -1 },
+            { x: 0, y: -1 },
           ];
           this.dir = sketch.random(initialDirs);
           
-          // All possible directions for turning
           this.allDirs = [
-            { x: -1, y: 0 },  // left
-            { x: 1, y: 0 },   // right
-            { x: 0, y: -1 },  // up
-            { x: 0, y: 1 }    // down
+            { x: -1, y: 0 },
+            { x: 1, y: 0 },
+            { x: 0, y: -1 },
+            { x: 0, y: 1 }
           ];
         }
 
         move() {
           this.moveCounter++;
           
-          // Only move at intervals to create discrete pixel movement like Snake
           if (this.moveCounter >= this.moveInterval) {
             this.moveCounter = 0;
             
-            // Randomly decide to turn (worm-like behavior)
             if (sketch.random() < this.turnChance) {
-              // Pick a new direction with heavy bias towards left and up
               const biasedDirs = [
-                { x: -1, y: 0 },  // left
-                { x: -1, y: 0 },  // left (weighted)
-                { x: -1, y: 0 },  // left (weighted)
-                { x: 0, y: -1 },  // up  
-                { x: 0, y: -1 },  // up (weighted)
-                { x: 1, y: 0 },   // right (rare)
-                { x: 0, y: 1 }    // down (rare)
+                { x: -1, y: 0 },
+                { x: -1, y: 0 },
+                { x: -1, y: 0 },
+                { x: 0, y: -1 },
+                { x: 0, y: -1 },
+                { x: 1, y: 0 },
+                { x: 0, y: 1 }
               ];
               
-              // Filter out opposite direction to prevent reversing
               const validDirs = biasedDirs.filter(dir => {
                 return !(dir.x === -this.dir.x && dir.y === -this.dir.y);
               });
@@ -76,17 +166,13 @@ document.addEventListener("DOMContentLoaded", () => {
               this.dir = sketch.random(validDirs);
             }
             
-            // Get current head position
             const head = this.segments[0];
             
-            // Move exactly one pixel grid step in the chosen direction
             const newX = head.x + (this.dir.x * this.pixelSize);
             const newY = head.y + (this.dir.y * this.pixelSize);
             
-            // Add new head position to front
             this.segments.unshift({ x: newX, y: newY });
             
-            // Remove tail to maintain length (Snake-like behavior)
             if (this.segments.length > this.segmentCount) {
               this.segments.pop();
             }
@@ -95,16 +181,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         show() {
           sketch.fill(0);
-          sketch.noStroke();
           
-          // Draw each segment as a solid square pixel (like classic Snake)
+          // Apply pink outline dynamically
+          if (window.currentStrokeWidth && window.currentStrokeWidth > 0.1) {
+            sketch.stroke("#ff00ff");
+            sketch.strokeWeight(window.currentStrokeWidth);
+          } else {
+            sketch.noStroke();
+          }
+          
           for (let i = 0; i < this.segments.length; i++) {
             const segment = this.segments[i];
             sketch.rect(segment.x, segment.y, this.pixelSize, this.pixelSize);
           }
         }
         
-        // Check if worm is completely off screen
         isOffScreen() {
           return this.segments[0].x < -50 || this.segments[0].x > sketch.width + 50 || 
                  this.segments[0].y < -50 || this.segments[0].y > sketch.height + 50;
@@ -114,19 +205,17 @@ document.addEventListener("DOMContentLoaded", () => {
       sketch.setup = () => {
         let cnv = sketch.createCanvas(window.innerWidth, window.innerHeight);
         cnv.position(0, 0);
-        cnv.style("pointer-events", "none"); // don't block clicks
+        cnv.style("pointer-events", "none");
         sketch.clear();
       };
   
       sketch.draw = () => {
         sketch.clear();
         
-        // Update and draw worms
         for (let i = worms.length - 1; i >= 0; i--) {
           worms[i].move();
           worms[i].show();
           
-          // Remove worms that are completely off screen
           if (worms[i].isOffScreen()) {
             worms.splice(i, 1);
           }
@@ -137,17 +226,14 @@ document.addEventListener("DOMContentLoaded", () => {
         sketch.resizeCanvas(window.innerWidth, window.innerHeight);
       };
   
-      // trigger worms on hover
       if (apple) {
         apple.addEventListener("mouseenter", () => {
           const rect = apple.getBoundingClientRect();
           spawnX = rect.left + rect.width / 2;
           spawnY = rect.top + rect.height / 2;
   
-          // Clear existing worms
           worms = [];
           
-          // Create worms
           for (let i = 0; i < 10; i++) {
             worms.push(new Worm(spawnX, spawnY));
           }
@@ -156,10 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
-/* ======================
-   Existing site JS
-   ====================== */
 document.addEventListener('DOMContentLoaded', function() {
   const samEmail = document.getElementById('sam-email');
   const cristinaEmail = document.getElementById('cristina-email');
@@ -167,10 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const h1 = document.querySelector('h1');
   const cornerWorm = document.getElementById('corner-worm');
 
-  // Track which client is currently clicked (for persistent email highlighting)
   let clickedClient = null;
 
-  // H1 character replacement functionality
   const originalText = h1.textContent;
   h1.innerHTML = '';
   
@@ -180,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
     span.textContent = char;
     span.dataset.original = char;
     
-    // Add hover listeners to each character
     span.addEventListener('mouseenter', function() {
       this.textContent = '♪';
     });
@@ -192,9 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
     h1.appendChild(span);
   }
 
-  // Function to highlight emails based on client type
   function highlightEmails(client) {
-    // Reset both emails first
     samEmail.style.color = '';
     samEmail.style.webkitTextStroke = '';
     samEmail.style.fontFamily = '';
@@ -202,7 +279,6 @@ document.addEventListener('DOMContentLoaded', function() {
     cristinaEmail.style.webkitTextStroke = '';
     cristinaEmail.style.fontFamily = '';
 
-    // Highlight appropriate email(s)
     if (client.classList.contains('sam-client')) {
       samEmail.style.color = '#FFEE00';
       samEmail.style.webkitTextStroke = '1.2px black';
@@ -219,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Function to reset emails (only if no client is currently clicked)
   function resetEmails() {
     if (!clickedClient) {
       samEmail.style.color = '';
@@ -231,7 +306,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Define socials per client
   const socials = {
     "Tara Yummy": {
       Spotify: "https://open.spotify.com/artist/47Seq2EAGTRuGyV9Fq3WPd",
@@ -295,47 +369,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Client functionality
   clients.forEach(client => {
-    // Hover functionality for email highlighting
     client.addEventListener('mouseenter', function() {
       highlightEmails(this);
     });
 
     client.addEventListener('mouseleave', function() {
-      // Only reset if this client isn't currently clicked
       if (clickedClient !== this) {
         resetEmails();
-        // If another client is clicked, keep its highlighting
         if (clickedClient) {
           highlightEmails(clickedClient);
         }
       }
     });
 
-    // Click functionality for social links
     client.addEventListener('click', function(e) {
       e.stopPropagation();
       
-      // Check if this client already has social links open
       const existingSocial = this.nextElementSibling;
       if (existingSocial && existingSocial.classList.contains('social-links')) {
-        // Close if already open
         existingSocial.remove();
         clickedClient = null;
         resetEmails();
         return;
       }
 
-      // Remove any existing social links
       const existingSocials = document.querySelectorAll('.social-links');
       existingSocials.forEach(social => social.remove());
 
-      // Set this as the clicked client and keep email highlighting
       clickedClient = this;
       highlightEmails(this);
 
-      // Create social links div
       const socialLinks = document.createElement('div');
       socialLinks.className = 'social-links';
       
@@ -348,16 +412,29 @@ document.addEventListener('DOMContentLoaded', function() {
           link.href = url;
           link.textContent = platform;
           link.target = '_blank';
+          
+          // Apply current styling to new links
+          if (window.currentStrokeWidth && window.currentStrokeWidth > 0.1) {
+            const strokeColor = "#ff00ff";
+            const strokeWidth = window.currentStrokeWidth;
+            link.style.webkitTextStroke = `${strokeWidth}px ${strokeColor}`;
+            link.style.textStroke = `${strokeWidth}px ${strokeColor}`;
+            link.style.textShadow = `
+              -${strokeWidth}px -${strokeWidth}px 0 ${strokeColor},
+              ${strokeWidth}px -${strokeWidth}px 0 ${strokeColor},
+              -${strokeWidth}px ${strokeWidth}px 0 ${strokeColor},
+              ${strokeWidth}px ${strokeWidth}px 0 ${strokeColor}
+            `;
+          }
+          
           socialLinks.appendChild(link);
         });
       }
 
-      // Insert social links after the clicked client
       this.parentNode.insertBefore(socialLinks, this.nextSibling);
     });
   });
 
-  // Close social links when clicking outside
   document.addEventListener('click', function(e) {
     if (!e.target.closest('#right li') && !e.target.closest('.social-links')) {
       const existingSocials = document.querySelectorAll('.social-links');
