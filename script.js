@@ -83,22 +83,37 @@ function updateStyling(volumeLevel) {
 }
 
   musicNotes.forEach((note, index) => {
-    note.addEventListener('mouseenter', function() {
-      ensureBassInitialized();
-      
-      if (bassVolume && audioStarted) {
-        const volumeRange = LAST_NOTE_VOLUME - FIRST_NOTE_VOLUME;
-        const volumeStep = volumeRange / (musicNotes.length - 1);
-        const targetVolume = FIRST_NOTE_VOLUME + (index * volumeStep);
+  note.addEventListener('mouseenter', async function() {
+    // if not started, start Tone here
+    if (!audioStarted) {
+      try {
+        await Tone.start();
+        audioStarted = true;
+        console.log("AudioContext unlocked by hover");
         
-        currentVolume = targetVolume;
-        bassVolume.volume.setValueAtTime(targetVolume, Tone.now());
-        
-        updateStyling(targetVolume);
+        bassVolume = new Tone.Volume(FIRST_NOTE_VOLUME).toDestination();
+        bassOscillator = new Tone.Oscillator({
+          frequency: 55,
+          type: "sine"
+        }).connect(bassVolume);
+        bassOscillator.start();
+      } catch (err) {
+        console.log("Tone start failed:", err);
       }
-    });
+    }
+
+    if (bassVolume && audioStarted) {
+      const volumeRange = LAST_NOTE_VOLUME - FIRST_NOTE_VOLUME;
+      const volumeStep = volumeRange / (musicNotes.length - 1);
+      const targetVolume = FIRST_NOTE_VOLUME + (index * volumeStep);
+
+      currentVolume = targetVolume;
+      bassVolume.volume.setValueAtTime(targetVolume, Tone.now());
+      updateStyling(targetVolume);
+    }
   });
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const apple = document.getElementById("corner-worm");
