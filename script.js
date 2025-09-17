@@ -394,16 +394,40 @@ document.addEventListener('DOMContentLoaded', function() {
       TikTok: "#"
     },
     "AG": {
-      Spotify: "#",
-      Instagram: "#",
-      Youtube: "#",
-      TikTok: "#"
+      Spotify: "https://open.spotify.com/artist/3HKUrC0erAdewcUeSKLzT8?si=diUHDc7URoSOMfSm8lHZvQ",
+      Instagram: "https://www.instagram.com/ag_audioo/",
+      Soundcloud: "https://soundcloud.com/ag-audio",
+      TikTok: "https://www.tiktok.com/@ag.audioo"
     },
     "Darby": {
       Spotify: "https://open.spotify.com/artist/6rErJmMCoNHUX0Z99uBB8m?si=-cys2pm2QqOpVQaCkVL1Ew",
       Instagram: "https://www.instagram.com/darbysounds/",
       Youtube: "https://www.youtube.com/@darbysounds",
       TikTok: "https://www.tiktok.com/@darbysounds"
+    },
+    "HerShe": {
+      Spotify: "https://open.spotify.com/artist/572W2DIMj2JYViwkIpae6J?si=Rs7X6NsgSUmVJq8eSPl5uA",
+      Instagram: "https://www.instagram.com/hershe/",
+      Youtube: "https://www.youtube.com/@HerSheMusic",
+      TikTok: "https://www.tiktok.com/@hershemusic"
+    },
+    "Doecaine": {
+      Spotify: "#",
+      Instagram: "https://www.instagram.com/doecaine/",
+      Youtube: "#",
+      TikTok: "https://www.tiktok.com/@doecaine"
+    },
+    "Bickle": {
+      Spotify: "https://open.spotify.com/artist/1xFMeZFEf4ZUfuKwrfs5lB?si=PWdfWJtOSHCQ-Df_cP4Nig",
+      Instagram: "https://www.instagram.com/bickleworldwide/",
+      Youtube: "https://www.youtube.com/@BickleFilm",
+      TikTok: "#"
+    },
+    "CRUSH3d": {
+      Spotify: "https://open.spotify.com/artist/5Qvgao5nFsaKRPeL42Dnpf?si=7nmctv37Q0Wcv8Qo7p09XA",
+      Instagram: "https://www.instagram.com/crush.3d/",
+      Soundcloud: "https://soundcloud.com/crush_3d",
+      TikTok: "https://www.tiktok.com/@crush.3d"
     }
   };
 
