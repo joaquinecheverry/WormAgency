@@ -375,12 +375,6 @@ document.addEventListener('DOMContentLoaded', function() {
       Youtube: "https://www.youtube.com/@cfcf",
       TikTok: "#"
     },
-    "ESP": {
-      Spotify: "https://open.spotify.com/artist/0G2H8XIsqcdI5GJrYdRRPa?si=z1A6LW1lRwSOYD-5lqy92g",
-      Instagram: "https://www.instagram.com/espforever/",
-      Youtube: "https://www.youtube.com/@esp4evr/videos",
-      TikTok: "#"
-    },
     "Olswel": {
       Spotify: "https://open.spotify.com/artist/5aFfTz3PUiklCHbgz2Aylb?si=WshQBRegRwmLLjAUlyM8Gg",
       Instagram: "https://www.instagram.com/olswelolswel/",
