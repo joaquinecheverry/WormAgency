@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
       Youtube: "https://www.youtube.com/@olswel8008",
       TikTok: "https://www.tiktok.com/@olswel"
     },
-    "TECHG1RLS": {
+    "TECH G1RLS": {
       Spotify: "#",
       Instagram: "https://www.instagram.com/techg1rls/",
       Youtube: "https://www.youtube.com/@techg1rls",
@@ -428,6 +428,12 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/crush.3d/",
       Soundcloud: "https://soundcloud.com/crush_3d",
       TikTok: "https://www.tiktok.com/@crush.3d"
+    },
+    "Tommy Fleece": {
+      Spotify: "https://open.spotify.com/artist/4vv1Y8dwByLcOJ8Wdsxrfg?si=dzIR_9ZMR4C-RLj7DuOsJA",
+      Instagram: "https://www.instagram.com/tommysfleece/",
+      Soundcloud: "https://soundcloud.com/user-562680767",
+      TikTok: "https://www.tiktok.com/@tommyfleece" 
     }
   };
 
