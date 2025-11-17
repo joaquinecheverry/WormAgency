@@ -434,6 +434,12 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/tommysfleece/",
       Soundcloud: "https://soundcloud.com/user-562680767",
       TikTok: "https://www.tiktok.com/@tommyfleece" 
+    },
+    "Angel Money": {
+      Spotify: "https://open.spotify.com/artist/2LWLa3SxLX5CQlT9GdVkSp?si=HtmzKxyVRIqmg5dbLaCZfg",
+      Instagram: "https://www.instagram.com/angelmoneymafia/",
+      Soundcloud: "https://soundcloud.com/babydreamgirl",
+      TikTok: "#" 
     }
   };
 
