@@ -440,6 +440,18 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/angelmoneymafia/",
       Soundcloud: "https://soundcloud.com/babydreamgirl",
       TikTok: "#" 
+    },
+    "Mindset": {
+      Spotify: "https://open.spotify.com/artist/4P03jzcBS0JcBVx5cl9YhC?si=RHKWkqGhSFqtcTriYLg76w",
+      Instagram: "https://www.instagram.com/mindsetbass/",
+      Soundcloud: "https://soundcloud.com/mindsetbass",
+      TikTok: "https://www.tiktok.com/@mindsetbass"
+    },
+    "Acyan": {
+      Spotify: "https://open.spotify.com/artist/0o70ZPcBroPuIcUOOLWDI4?si=3tMCGWHWSgKgJCyend6Icg",
+      Instagram: "https://www.instagram.com/acyanmusic/",
+      Soundcloud: "https://soundcloud.com/acyanmusic",
+      TikTok: "https://www.tiktok.com/@acyanmusic"
     }
   };
 
