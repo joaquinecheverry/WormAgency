@@ -452,6 +452,24 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/acyanmusic/",
       Soundcloud: "https://soundcloud.com/acyanmusic",
       TikTok: "https://www.tiktok.com/@acyanmusic"
+    },
+    "Slow Magic": {
+      Spotify: "https://open.spotify.com/artist/3htNAy3vYWWYV8RZFeyRMT?si=bb7U6V0CTSyFoyO9H4TFDA",
+      Instagram: "https://www.instagram.com/slowmagic/",
+      Soundcloud: "https://soundcloud.com/slowmagic",
+      TikTok: "https://www.tiktok.com/@slowwwmagic"
+    },
+    "beastboi.": {
+      Spotify: "https://open.spotify.com/artist/0e87rlA12iAl7kIonLl2e4?si=xjaBdGnaQieQPS6zNCcmLQ",
+      Instagram: "https://www.instagram.com/beastboisucks/",
+      Soundcloud: "https://soundcloud.com/beastboisucks",
+      TikTok: "https://www.tiktok.com/@beastboisucks"
+    },
+    "Ilykimchi": {
+      Spotify: "https://open.spotify.com/artist/6cCXgBhHKKuftmzJTL9Omb?si=etjbaUkRQumO6BJHnQZmww",
+      Instagram: "https://www.instagram.com/ilykimchi/",
+      Soundcloud: "https://soundcloud.com/ilykimchi",
+      TikTok: "https://www.tiktok.com/@ilykimchi"
     }
   };
 
