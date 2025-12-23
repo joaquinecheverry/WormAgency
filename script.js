@@ -45,6 +45,17 @@ document.addEventListener('click', async function initAudio() {
 }, { once: true });
 
 document.addEventListener('DOMContentLoaded', function() {
+
+  const clientList = document.querySelector('#right ul');
+  const clients = Array.from(clientList.querySelectorAll('li'));
+  
+  clients.sort((a, b) => {
+    return a.textContent.trim().localeCompare(b.textContent.trim());
+  });
+  
+  clientList.innerHTML = '';
+  clients.forEach(client => clientList.appendChild(client));
+
   const musicNotes = document.querySelectorAll('#mus span');
   let currentVolume = FIRST_NOTE_VOLUME;
   
