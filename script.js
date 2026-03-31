@@ -489,22 +489,22 @@ document.addEventListener('DOMContentLoaded', function() {
       TikTok: "https://www.tiktok.com/@yungbae"      
     },
     "poptropicaslutz!": {
-      Spotify: "",
-      Instagram: "",
-      Soundcloud: "",
-      TikTok: ""   
+      Spotify: "https://open.spotify.com/artist/08DN8ZbOSeuTELiQjc4Jl8?si=krK6zAs_QkOUd3VhGNOYUQ",
+      Instagram: "https://www.instagram.com/poptropicaslutz/",
+      YouTube: "https://www.youtube.com/channel/UCCW6F3OhY-JgD0jgdaevaWg",
+      TikTok: "https://www.tiktok.com/@poptropicaslutz"   
     },
     "Nation": {
-      Spotify: "",
-      Instagram: "",
-      Soundcloud: "",
-      TikTok: ""  
+      Spotify: "https://open.spotify.com/artist/03D2b6ATNCne8B3D251ncQ?si=xALfx5vcSYyz-RWXiVFJXg",
+      Instagram: "https://www.instagram.com/nation_soldier/",
+      Soundcloud: "https://soundcloud.com/nationsoldier",
+      YouTube: "https://www.youtube.com/@Nation_"  
     },
     "pinponpanpon": {
-      Spotify: "",
-      Instagram: "",
-      Soundcloud: "",
-      TikTok: ""  
+      Spotify: "https://open.spotify.com/artist/4f2l5pSKd1oUMEMx7SZBng?si=aJHgb0MrRHGI_nJGpfcg0Q",
+      Instagram: "https://www.instagram.com/pinponpanpon9/",
+      Soundcloud: "https://soundcloud.com/pinponpanpon",
+      TikTok: "https://www.tiktok.com/@pinponpanpon.jp"  
     }
   };
 
