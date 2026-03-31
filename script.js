@@ -487,6 +487,24 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/yungbae/",
       Soundcloud: "https://soundcloud.com/yungestbae",
       TikTok: "https://www.tiktok.com/@yungbae"      
+    },
+    "poptropicaslutz!": {
+      Spotify: "",
+      Instagram: "",
+      Soundcloud: "",
+      TikTok: ""   
+    },
+    "Nation": {
+      Spotify: "",
+      Instagram: "",
+      Soundcloud: "",
+      TikTok: ""  
+    },
+    "pinponpanpon": {
+      Spotify: "",
+      Instagram: "",
+      Soundcloud: "",
+      TikTok: ""  
     }
   };
 
