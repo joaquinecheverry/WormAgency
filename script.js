@@ -404,12 +404,6 @@ document.addEventListener('DOMContentLoaded', function() {
       Soundcloud:"https://soundcloud.com/djthankyou311",
       TikTok: "#"
     },
-    "AG": {
-      Spotify: "https://open.spotify.com/artist/3HKUrC0erAdewcUeSKLzT8?si=diUHDc7URoSOMfSm8lHZvQ",
-      Instagram: "https://www.instagram.com/ag_audioo/",
-      Soundcloud: "https://soundcloud.com/ag-audio",
-      TikTok: "https://www.tiktok.com/@ag.audioo"
-    },
     "Darby": {
       Spotify: "https://open.spotify.com/artist/6rErJmMCoNHUX0Z99uBB8m?si=-cys2pm2QqOpVQaCkVL1Ew",
       Instagram: "https://www.instagram.com/darbysounds/",
