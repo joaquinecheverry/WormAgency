@@ -410,12 +410,6 @@ document.addEventListener('DOMContentLoaded', function() {
       Youtube: "https://www.youtube.com/@darbysounds",
       TikTok: "https://www.tiktok.com/@darbysounds"
     },
-    "HerShe": {
-      Spotify: "https://open.spotify.com/artist/572W2DIMj2JYViwkIpae6J?si=Rs7X6NsgSUmVJq8eSPl5uA",
-      Instagram: "https://www.instagram.com/hershe/",
-      Youtube: "https://www.youtube.com/@HerSheMusic",
-      TikTok: "https://www.tiktok.com/@hershemusic"
-    },
     "Doecaine": {
       Spotify: "#",
       Instagram: "https://www.instagram.com/doecaine/",
