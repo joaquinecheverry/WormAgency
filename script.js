@@ -492,7 +492,13 @@ document.addEventListener('DOMContentLoaded', function() {
       Spotify: "https://open.spotify.com/artist/4f2l5pSKd1oUMEMx7SZBng?si=aJHgb0MrRHGI_nJGpfcg0Q",
       Instagram: "https://www.instagram.com/pinponpanpon9/",
       Soundcloud: "https://soundcloud.com/pinponpanpon",
-      TikTok: "https://www.tiktok.com/@pinponpanpon.jp"  
+      TikTok: "https://www.tiktok.com/@pinponpanpon.jp"
+    },
+    "velvette blue": {
+      Spotify: "https://open.spotify.com/artist/74immNKL4Q4mzhP2iKvuj1?si=CEFa2_YrRNqZDA8RRztdJw",
+      Instagram: "https://www.instagram.com/velvetteblue/",
+      Soundcloud: "https://soundcloud.com/velvetteblue",
+      TikTok: "https://www.tiktok.com/@velvetteblue"
     }
   };
 
