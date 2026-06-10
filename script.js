@@ -499,6 +499,18 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/velvetteblue/",
       Soundcloud: "https://soundcloud.com/velvetteblue",
       TikTok: "https://www.tiktok.com/@velvetteblue"
+    },
+    "Pyro": {
+      Spotify: "https://open.spotify.com/artist/2lay7OmkeaG0sQcwV0pB1j?si=2XCeFP24QpWwI-frONOwEg",
+      Instagram: "https://www.instagram.com/itspyromusic/",
+      Soundcloud: "https://soundcloud.com/its-pyro-music",
+      TikTok: ""
+    },
+    "Silicone Valley": {
+      Spotify: "https://open.spotify.com/artist/6VTDiGVPXMi17JmRo1ewr5?si=bh_pADVKTPic50Ln8FZihQ",
+      Instagram: "https://www.instagram.com/silicone___valley/",
+      Soundcloud: "https://soundcloud.com/silicone_valley",
+      TikTok: ""  
     }
   };
 
