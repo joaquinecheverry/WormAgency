@@ -468,13 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
       Spotify: "https://open.spotify.com/artist/6cCXgBhHKKuftmzJTL9Omb?si=etjbaUkRQumO6BJHnQZmww",
       Instagram: "https://www.instagram.com/ilykimchi/",
       Soundcloud: "https://soundcloud.com/ilykimchi",
-      TikTok: "https://www.tiktok.com/@ilykimchi"
-    },
-    "Yung Bae": {
-      Spotify: "https://open.spotify.com/artist/30FDJPN3RtwJZ20g5YGCRX?si=fqcXcO2LSJ2-wDc-M1L4AA",
-      Instagram: "https://www.instagram.com/yungbae/",
-      Soundcloud: "https://soundcloud.com/yungestbae",
-      TikTok: "https://www.tiktok.com/@yungbae"      
+      TikTok: "https://www.tiktok.com/@ilykimchi"  
     },
     "poptropicaslutz!": {
       Spotify: "https://open.spotify.com/artist/08DN8ZbOSeuTELiQjc4Jl8?si=krK6zAs_QkOUd3VhGNOYUQ",
