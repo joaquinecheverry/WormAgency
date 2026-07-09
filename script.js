@@ -505,6 +505,12 @@ document.addEventListener('DOMContentLoaded', function() {
       Instagram: "https://www.instagram.com/silicone___valley/",
       Soundcloud: "https://soundcloud.com/silicone_valley",
       TikTok: ""  
+    },
+    "QRTR": {
+      Spotify: "https://open.spotify.com/artist/2THXZEfcOePL7bRFl2DUwj?si=coVtgwmhRM2lK-Hql9CcSA",
+      Instagram: "https://www.instagram.com/qrtrmusic/",
+      Soundcloud: "https://soundcloud.com/qrtr",
+      TikTok: "https://www.tiktok.com/@qrtr.party" 
     }
   };
 
