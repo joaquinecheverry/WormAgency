@@ -510,7 +510,19 @@ document.addEventListener('DOMContentLoaded', function() {
       Spotify: "https://open.spotify.com/artist/2THXZEfcOePL7bRFl2DUwj?si=coVtgwmhRM2lK-Hql9CcSA",
       Instagram: "https://www.instagram.com/qrtrmusic/",
       Soundcloud: "https://soundcloud.com/qrtr",
-      TikTok: "https://www.tiktok.com/@qrtr.party" 
+      TikTok: "https://www.tiktok.com/@qrtr.party"
+    },
+    "White Ring": {
+      Spotify: "https://open.spotify.com/artist/64AV09dDdCGBGv11QlGOJN?si=2QYxO1pJToqsiIYn7q8m_A",
+      Instagram: "https://www.instagram.com/whitering999/",
+      Soundcloud: "",
+      TikTok: "" 
+    },
+    "Turnabout": {
+      Spotify: "https://open.spotify.com/artist/2crhDD8M5Zg3Q5MzOA5VYn?si=_rJaYmLNTjqSTM7amrpHzQ",
+      Instagram: "https://www.instagram.com/tturnaboutt/",
+      Soundcloud: "https://soundcloud.com/TURNABOUTTT",
+      TikTok: "" 
     }
   };
 
