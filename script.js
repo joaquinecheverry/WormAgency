@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
       Spotify: "https://open.spotify.com/artist/2crhDD8M5Zg3Q5MzOA5VYn?si=_rJaYmLNTjqSTM7amrpHzQ",
       Instagram: "https://www.instagram.com/tturnaboutt/",
       Soundcloud: "https://soundcloud.com/TURNABOUTTT",
-      TikTok: "" 
+      TikTok: ""
     }
   };
 
