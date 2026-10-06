@@ -416,12 +416,6 @@ document.addEventListener('DOMContentLoaded', function() {
       Youtube: "#",
       TikTok: "https://www.tiktok.com/@doecaine"
     },
-    "Bickle": {
-      Spotify: "https://open.spotify.com/artist/1xFMeZFEf4ZUfuKwrfs5lB?si=PWdfWJtOSHCQ-Df_cP4Nig",
-      Instagram: "https://www.instagram.com/bickleworldwide/",
-      Youtube: "https://www.youtube.com/@BickleFilm",
-      TikTok: "#"
-    },
     "CRUSH3d": {
       Spotify: "https://open.spotify.com/artist/5Qvgao5nFsaKRPeL42Dnpf?si=7nmctv37Q0Wcv8Qo7p09XA",
       Instagram: "https://www.instagram.com/crush.3d/",
