@@ -392,12 +392,6 @@ document.addEventListener('DOMContentLoaded', function() {
       Youtube: "https://www.youtube.com/@olswel8008",
       TikTok: "https://www.tiktok.com/@olswel"
     },
-    "TECH G1RLS": {
-      Spotify: "#",
-      Instagram: "https://www.instagram.com/techg1rls/",
-      Youtube: "https://www.youtube.com/@techg1rls",
-      TikTok: "https://www.tiktok.com/@techg1rlss"
-    },
     "DJ Thank You": {
       Spotify: "#",
       Instagram: "https://www.instagram.com/djthankyou/",
